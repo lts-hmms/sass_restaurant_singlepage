@@ -40,11 +40,71 @@
   color: $color-secondary;
   background-color: transparent;
   border: 2px solid $color-secondary;
+  outline-color: $color-primary;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     background-color: $color-secondary;
     color: $color-dark;
+  }
+}
+
+.card {
+  width: 33.3333%;
+  height: 30vw;
+  position: relative;
+  overflow: hidden;
+
+  &:hover .card-overlay {
+    left: 0;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-color: rgba($color-primary, 0.6);
+    color: $color-white;
+    z-index: 10;
+    @include flexLayout;
+    flex-direction: column;
+    @extend %fullSpace;
+    transition: left 0.7s;
+
+    &-heading {
+      font-family: $font-nunito;
+      font-size: 40px;
+      @include textStyles(capitalize);
+    }
+
+    &-paragraph {
+      font-family: $font-roboto;
+      font-size: 18px;
+      margin-bottom: 30px;
+      @include textStyles(capitalize);
+    }
+
+    &-btn {
+      width: 150px;
+      height: 40px;
+      color: $color-primary;
+      background-color: $color-white;
+      font-family: $font-nunito;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid $color-primary;
+      border-radius: 30px;
+      outline-color: $color-grey;
+      cursor: pointer;
+    }
+  }
+
+  &-img {
+    object-fit: cover;
+    opacity: 0.7;
+    @extend %fullSpace;
   }
 }
